@@ -126,6 +126,14 @@ window.onload = () => {
     let loginButton = document.querySelector(".login")
     loginButton.addEventListener('click', () => {
         $('#loginModal').modal('show');
+        closeLoginModal()
     })
+    }
+
+    function closeLoginModal() {
+        let closeButton = document.querySelector(".close")
+        closeButton.addEventListener('click', () => {
+            $('#loginModal').modal('hide')
+        })
     }
 

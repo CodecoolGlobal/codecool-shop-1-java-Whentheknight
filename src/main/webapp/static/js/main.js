@@ -19,6 +19,7 @@ window.onload = () => {
     initButtons();
     initSideBar();
     initCartEventListener();
+    openLoginModal();
 }
     function initButtons() {
         let filterBtn = document.getElementById('filter-btn');
@@ -119,5 +120,12 @@ window.onload = () => {
         cartButton.addEventListener('click', function () {
             window.location.href = "/cart";
         })
+    }
+
+    function openLoginModal() {
+    let loginButton = document.querySelector(".login")
+    loginButton.addEventListener('click', () => {
+        $('#loginModal').modal('show');
+    })
     }
 

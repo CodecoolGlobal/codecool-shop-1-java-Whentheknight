@@ -4,6 +4,7 @@ import com.codecool.shop.config.TemplateEngineUtil;
 import com.codecool.shop.dao.ProductCategoryDao;
 import com.codecool.shop.dao.ProductDao;
 import com.codecool.shop.dao.UserOrderDao;
+import com.codecool.shop.dao.implementation.OrderDaoMem;
 import com.codecool.shop.dao.implementation.ProductCategoryDaoMem;
 import com.codecool.shop.dao.implementation.ProductDaoMem;
 import com.codecool.shop.dao.implementation.UserOrderDaoMem;
@@ -20,6 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.text.DecimalFormat;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -30,8 +32,10 @@ public class PaymentController extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+        DecimalFormat df = new DecimalFormat("0.00");
         TemplateEngine engine = TemplateEngineUtil.getTemplateEngine(req.getServletContext());
         WebContext context = new WebContext(req, resp, req.getServletContext());
+        context.setVariable("total_price", df.format(OrderDaoMem.getInstance().getPrice()));
 
         engine.process("product/payment.html", context, resp.getWriter());
     }
@@ -57,7 +61,7 @@ public class PaymentController extends HttpServlet {
             ioException.printStackTrace();
        }
 
-        resp.sendRedirect(req.getContextPath() + "/");
+        resp.sendRedirect(req.getContextPath() + "/confirmation");
     }
 
 }

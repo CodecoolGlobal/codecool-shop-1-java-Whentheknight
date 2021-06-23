@@ -5,7 +5,7 @@
     <meta name="author" content="Codecool"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
-    <title>Codecool Shop</title>
+    <title>SouthCool Shop</title>
 
     <!-- Bootstrap components -->
     <!-- Latest compiled and minified Jquery -->
@@ -40,19 +40,9 @@
 </head>
 
 <header>
-    <div class="topnav">
-        <a href="/">Home</a>
-        <a class="filter" id="filter-btn" style="cursor: pointer;" href="#">Filter</a>
-        <a href="#contact">Contact</a>
-        <a href="#about">About</a>
 
-        <a class="login" href="#">Login</a>
-        <a class="shopcart" href="#">
-            <i class="fas fa-shopping-cart cart-button"></i>
-            <i class="cart-size" th:data-value="${cartSize}"></i>
-        </a>
 
-    </div>
+
 
 
 
@@ -73,10 +63,10 @@
                     </div>
                         <button type="submit" class="btn btn-outline-primary">Login</button>
                 </form>
-
             </div>
         </div>
     </div>
+
 <div id="mySidenav" class="sidenav">
     <h1 style="text-align: center; color: white; font-size: 48px;">Filter by</h1>
     <a href="javascript:void(0)" class="closebtn" id="close-btn">&times;</a>
@@ -110,6 +100,34 @@
         <a href='#' id="supplier-select" class="nav-link select">Select all</a>
         <a href='#' id="supplier-clear" class="nav-link clear">Clear all</a>
     </div>
+
+</div>
+
+<div class="topnav">
+    <a href="/">Home</a>
+    <a class="filter" id="filter-btn" style="cursor: pointer;" href="#">Filter</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>
+
+    <a class="login" href="#">Login</a>
+
+        <a class="shopcart" href="#">
+            <i class="fas fa-shopping-cart cart-button"></i>
+            <i class="cart-size" th:data-value="${cartSize}"></i>
+        </a>
+
+
+</div>
+
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+
+        <p id="emptyCart">Your cart is empty!</p>
+        <span class="close">Close</span>
+    </div>
+
 
 </div>
 

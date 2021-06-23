@@ -26,15 +26,47 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <!-- End of Bootstrap components -->
+    <link rel="stylesheet" type="text/css" href="/static/css/custom.css"/>
 
     <link rel="stylesheet" type="text/css" href="/static/css/checkout.css"/>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
-    <script type='module' src='/static/js/main.js'></script>
+    <script type='module' src='/static/js/modal.js'></script>
+    <link href="http://fonts.cdnfonts.com/css/south-park" rel="stylesheet">
 </head>
 <body>
+
+<div class="topnav">
+    <a href="/">Home</a>
+    <a href="#contact">Contact</a>
+    <a href="#about">About</a>
+
+    <a class="login" href="#">Login</a>
+
+    <a class="shopcart" href="#">
+        <i class="fas fa-shopping-cart cart-button"></i>
+        <i class="cart-size" th:data-value="${cartSize}"></i>
+    </a>
+
+
+</div>
+
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+
+        <p id="emptyCart">Your cart is empty!</p>
+        <span class="close">Close</span>
+    </div>
+
+
+</div>
+
 <div class="container">
+    <button class="back-button" onclick="location.href='/';">Back</button>
     <h3>Billing Address</h3>
+    <h5 th:text="'Total price: ' + ${total_price} + ' USD'"></h5>
     <form name="checkoutForm" method="post" action="checkout">
         <label for="name">Name</label>
         <input type="text" id="name" name="name" placeholder="Eric Cartman">

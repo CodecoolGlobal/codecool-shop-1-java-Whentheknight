@@ -12,6 +12,9 @@ import com.codecool.shop.model.ProductCategory;
 import com.codecool.shop.model.Supplier;
 import com.codecool.shop.service.OrderService;
 import com.codecool.shop.service.ProductService;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import com.google.gson.Gson;
 import org.thymeleaf.TemplateEngine;
 import org.thymeleaf.context.WebContext;
 
@@ -21,7 +24,9 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.Enumeration;
+import java.util.NoSuchElementException;
 
 
 @WebServlet(urlPatterns = {"/updateCart"})
@@ -30,24 +35,45 @@ public class UpdateCartServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("application/json");
+        response.setCharacterEncoding("UTF-8");
+
+        PrintWriter out = response.getWriter();
         OrderDao orderDataStore = OrderDaoMem.getInstance();
         ProductDao productDao = ProductDaoMem.getInstance();
-        Enumeration params = request.getParameterNames();
-        String[] paramValues = null;
-        String paramName = (String) params.nextElement();
-        paramValues = request.getParameterValues(paramName);
 
-        String productName = paramValues[0];
-        Product newProduct = productDao.getByName(productName);
+        String productName = request.getParameter("name");
 
-        boolean inOrder = false;
-        for (Product product : orderDataStore.getAll().keySet()) {
-            if (product.getName().equals(newProduct.getName())) {
-                orderDataStore.increaseQuantity(product);
-                inOrder = true;
+
+        if (productName.equals("show")) {}
+
+        else if (productName.equals("clear")) {
+            orderDataStore.getShoppingCart().clear();
+        }
+
+        else {
+            String modifier = request.getParameter("mod");
+            Product newProduct = productDao.getByName(productName);
+            if (productName != null) {
+                boolean inOrder = false;
+                for (Product product : orderDataStore.getAll().keySet()) {
+                    if (product.getName().equals(newProduct.getName())) {
+                        if (modifier.equals("add")) {
+                            orderDataStore.increaseQuantity(product);
+                        } else if (modifier.equals("del")) {
+                            orderDataStore.decreaseQuantity(product);
+                        }
+                        inOrder = true;
+                    }
+                }
+                if (!inOrder) orderDataStore.addToCart(newProduct, 1);
             }
         }
-        if (!inOrder) orderDataStore.addToCart(newProduct, 1);
-    }
-}
 
+        Gson gson = new Gson();
+
+        String json = gson.toJson(orderDataStore.getShoppingCart());
+        out.println(json);
+    }
+
+}

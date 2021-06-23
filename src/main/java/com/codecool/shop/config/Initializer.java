@@ -52,7 +52,7 @@ public class Initializer implements ServletContextListener {
         productDataStore.add(new Product("Alabama Man", 15.99f, "USD", "He is quick, strong, and active. He can bowl, chew tobacco, and drink alcohol. His action button can be used to hit his wife, a figure sold separately..", toy, southpark));
         productDataStore.add(new Product("Chinpokomon booster pack", 42.99f, "USD", "Chinpokomon booster pack contains multiple collectable chinpokomons. Gotta buy 'em all!", toy, southpark));
         productDataStore.add(new Product("'IT' Garrison's futuristic bike", 1499.69f, "USD", "IT can go up to two hundred miles per hour, gets three hundred miles to the gallon, and is an all-around better mode of travel", vehicle, garrison));
-        productDataStore.add(new Product("Faith+1", 18.23f, "USD", "Top hits from the christian rock band called Faith+1.", music, cartman));
+        productDataStore.add(new Product("Faith Plus 1", 18.23f, "USD", "Top hits from the christian rock band called Faith+1.", music, cartman));
         productDataStore.add(new Product("Vientos Del Sur", 10.45f, "USD", "Top hits of Peruvian Pan Flute Music.", music, cartman));
     }
 }

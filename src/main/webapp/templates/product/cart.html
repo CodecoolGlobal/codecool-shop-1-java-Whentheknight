@@ -29,10 +29,38 @@
 
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
 
-  <script src='/static/js/main.js' defer></script>
+  <script type='module' src='/static/js/modal.js'></script>
 </head>
 
 <body>
+
+<div class="topnav">
+  <a href="/">Home</a>
+  <a href="#contact">Contact</a>
+  <a href="#about">About</a>
+
+  <a class="login" href="#">Login</a>
+
+  <a class="shopcart" href="#">
+    <i class="fas fa-shopping-cart cart-button"></i>
+    <i class="cart-size" th:data-value="${cartSize}"></i>
+  </a>
+
+
+</div>
+
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+
+    <p id="emptyCart">Your cart is empty!</p>
+    <span class="close">Close</span>
+  </div>
+
+
+</div>
+
 <div class="container">
   <h4>Cart
     <span class="price">

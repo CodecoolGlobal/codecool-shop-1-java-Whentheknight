@@ -1,3 +1,11 @@
+body
+{
+    background-image: url("../img/background.png");
+    background-repeat: no-repeat;
+    background-size: 100%;
+    background-attachment: fixed;
+    font-family: 'South Park', sans-serif;
+}
 .cart-container
 {
     display: flex;
@@ -11,9 +19,11 @@
 }
 .container {
     background-color: #e9ecef;
-    padding: 5px 20px 15px 20px;
+    padding: 15px 20px 15px 20px;
+    margin-top: 75px;
     border: 1px solid lightgrey;
     border-radius: 3px;
+    font-family: 'South Park', sans-serif;
 }
 label {
     margin-bottom: 10px;
@@ -37,8 +47,13 @@ input[type=text],
 input[type=number],
 input[type=email]{
     width: 100%;
+    font-family: sans-serif;
     margin-bottom: 20px;
     padding: 12px;
     border: 1px solid #ccc;
     border-radius: 3px;
+}
+.back-button
+{
+    float: right;
 }

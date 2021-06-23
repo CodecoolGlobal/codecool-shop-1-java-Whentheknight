@@ -193,15 +193,59 @@ img {
     color: white;
 }
 
-.topnav a.shopcart{
+.topnav a.login{
     float: right;
 }
 
-.topnav a.login{
+.topnav .dropdown{
     float: right;
-    cursor: pointer;
-    color: #fff;
 }
+
+.topnav .shopcart{
+    float: right;
+}
+
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 91.7rem;
+    top: 0;
+    width: 23rem; /* Full width */
+    height: auto; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin-top: 15%; /* 15% from the top and centered */
+    margin-bottom:0%;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 23rem; /* Could be more or less, depending on screen size */
+    height: auto;
+
+}
+
+/* The Close Button */
+.close {
+    color: black;
+    float: right;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
 
 .close {
     position: absolute;
@@ -252,4 +296,20 @@ img {
     border-radius: 3px;
     cursor: pointer;
     font-size: 17px;
+
+.cartFooter {
+    color: black;
+    float: right;
+    font-size: 18px;
+    font-weight: bold; cursor:pointer;"
+}
+
+.mainFooter {
+    position: fixed;
+    bottom: 0px;
+    width: 98%;
+    margin-bottom: 10px;
+    margin-right: 20px;
+    margin-left: auto;
+
 }

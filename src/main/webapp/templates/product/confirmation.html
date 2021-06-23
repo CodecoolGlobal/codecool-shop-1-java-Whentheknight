@@ -1,11 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8"/>
     <meta name="author" content="Codecool"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
 
-    <title>Payment</title>
+    <title>Codecool Shop</title>
 
     <!-- Bootstrap components -->
     <!-- Latest compiled and minified Jquery -->
@@ -26,15 +26,25 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
     <!-- End of Bootstrap components -->
+
     <link rel="stylesheet" type="text/css" href="/static/css/custom.css"/>
-    <link rel="stylesheet" type="text/css" href="/static/css/checkout.css"/>
 
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css">
+
+
     <script type='module' src='/static/js/modal.js'></script>
-    <script type='module' src='/static/js/checkout.js'></script>
+
     <link href="http://fonts.cdnfonts.com/css/south-park" rel="stylesheet">
+
+
 </head>
+
+<header>
+
+
+</header>
 <body>
+
 
 <div class="topnav">
     <a href="/">Home</a>
@@ -63,23 +73,22 @@
 
 </div>
 
-<div class="container">
-    <h3>Payment</h3>
-    <h5 th:text="'Total price: ' + ${total_price} + ' USD'"></h5>
-    <form name="paymentForm" method="post" action="payment">
-        <label for="cName">Name on Card</label>
-        <input type="text" id="cName" name="cardName" placeholder="Eric Cartman">
-        <label for="cNum">Card number</label>
-        <input type="text" id="cNum" name="cardNumber" placeholder="1111-2222-3333-4444" maxlength="16">
-        <label for="expDate">Expiration Date</label>
-        <input type="text" id="expDate" name="expDate" placeholder="MM/YY" maxlength="4">
-        <label for="cvv">CVV</label>
-        <input type="password" id="cvv" name="cvv" placeholder="***" maxlength="3">
-        <input id="orderId" name="orderId" value="" type="hidden">
-        <button class="btn pay" type="submit">Pay</button>
-    </form>
+<div id="main">
+    <div>
+        <h1 style="text-align: center;">SouthCool Shop</h1>
+    </div>
+    <div class="container">
+        <h2>Thank you for your order!</h2>
+        <h5 th:text="'Total price: ' + ${total_price} + ' USD'"></h5>
+        <ul th:each="product : ${order}">
+            <li th:text="${product.key.name} + ' | price: ' + ${product.key.defaultPrice} + ' USD' + ' | quantity: ' + ${product.value}"></li>
+        </ul>
+    </div>
+    <div class="mainFooter">
+        <div th:replace="footer.html :: copy"></div>
+    </div>
 </div>
-<script src='/static/js/payment.js'></script>
+</div>
 
 </body>
 </html>

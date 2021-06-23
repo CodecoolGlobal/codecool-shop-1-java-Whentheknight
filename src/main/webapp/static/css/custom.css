@@ -202,3 +202,54 @@ img {
     cursor: pointer;
     color: #fff;
 }
+
+.close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    transition: all 200ms;
+    font-size: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    color: #333;
+}
+
+.modal-content h2 {
+    margin: 20px;
+}
+
+.modal-content button {
+    background-color: #04AA6D;
+    color: white;
+    width: 80px;
+    margin-left: 700px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 17px;
+}
+
+.form-group {
+    width: 80%;
+    margin-top: 30px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: sans-serif;
+}
+
+.login input{
+    border-radius: 3px;
+}
+
+.login button {
+    background-color: #04AA6D;
+    color: white;
+    width: 80px;
+    margin-left: 700px;
+    margin-bottom: 20px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    font-size: 17px;
+}
